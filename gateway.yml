@@ -10,8 +10,12 @@ cloud:
       locator:
         enable: true
     routes:
-      - id: catalogRoutes
+      - id: catalog-service
         uri: lb://catalog-service/
+        predicates:
+          -Path=/catalog/**
+      - id: movie-service
+        uri: lb://movie-service/
         predicates:
           -Path=/catalog/**
 
