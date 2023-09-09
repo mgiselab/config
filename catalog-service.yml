@@ -4,13 +4,16 @@ server:
       application:
         name: catalog-service
           mongodb:
+          uri: mongodb://localhost:27018/catalog
+          username: root
+          password: root
+            authentication-database: admin
             embedded:
               version: 4.0.2
         data:
             mongodb:
               database: test
               port: 27018
-
 
   eureka:
       client:
