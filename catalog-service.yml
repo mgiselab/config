@@ -1,11 +1,11 @@
 server:
-  port: 9092
+  port: ${PORT:${SERVER_PORT:0}}
   spring:
-    zipkin:
+    application:
+     name: catalog-service
+     zipkin:
       base-url: http://localhost:9411/
-      enabled: true
-      application:
-        name: catalog-service
+      enabled: true  
           mongodb:
           uri: mongodb://localhost:27018/catalog
           username: root
