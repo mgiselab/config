@@ -1,3 +1,6 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
 spring:
   mongodb:
     embedded:
@@ -6,5 +9,19 @@ spring:
     mongodb:
       database: test
       port: 27017
-server:
-  port: 0
+  zipkin:
+    baseUrl: http://localhost:9411/
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
